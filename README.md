@@ -6,3 +6,6 @@ motive motor back end repository (API)
 
 
 Express js backend deployed with heroku, through heroku cli. Local server setup to run on port 5000 or otherwise specified, fork and clone to run locally.
+
+
+localhost served by default on port 5000: http://localhost:5000/
