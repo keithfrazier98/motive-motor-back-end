@@ -4,7 +4,8 @@ const path = require("path");
 const {
     DATABASE_URL,
     DATABASE_URL_DEVELOPMENT,
-    DATABASE_URL_TEST
+    DATABASE_URL_TEST, 
+    DEBUG
 } = process.env
 
 module.exports = {
