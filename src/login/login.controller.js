@@ -1,6 +1,5 @@
 const service = require('./login.service')
 
-
 async function read (req, res, next){
     const {email} = req.params
     userExists = await service.read(email)
@@ -8,7 +7,7 @@ async function read (req, res, next){
     if (userExists){
         res.status(200).json({data:userExists})
     } else {
-        next({status:400, message: "Invalid email or password"})
+        next({status:400, message: "Invalid email"})
     }
 } 
 
