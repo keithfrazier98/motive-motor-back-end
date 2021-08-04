@@ -4,7 +4,6 @@ exports.up = function(knex) {
      table.foreign("user_id").references("logins.user_id")
      table.text("first_name").notNullable()
      table.text("last_name").notNullable()
-     table.text("theme_id").notNullable()
      table.text("profile_img_pointer")
  })
 };
