@@ -1,7 +1,7 @@
 
 exports.up = function(knex) {
- return knex.schema.createTable("user-profiles", (table) => {
-     table.foreign("user_id").references("logins.user_id")
+ return knex.schema.createTable("profiles", (table) => {
+     table.integer("user_id").references("user_id").inTable("logins")
      table.text("first_name").notNullable()
      table.text("last_name").notNullable()
      table.text("profile_img_pointer")
