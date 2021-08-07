@@ -1,8 +1,9 @@
 exports.up = function(knex) {
   return knex.schema.createTable("logins", (table) => {
       table.increments("user_id").primary()
-      table.text("email").notNullable()
-      table.text("password").notNullable()
+      table.string("email")
+      table.string("password")
+      table.text("fb_login_id")
   })
 };
 

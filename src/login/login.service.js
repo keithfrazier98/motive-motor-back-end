@@ -1,7 +1,7 @@
 const knex = require("../db/connection");
 
-function read(email) {
-  return knex("logins").whereRaw(`email = '${email}'`).select("*").first();
+function read(type, key) {
+  return knex("logins").whereRaw(`${type} = '${key}'`).select("*").first();
 }
 
 function createUserLogin(email, password) {
