@@ -7,11 +7,11 @@ async function read(req, res, next) {
     type = "email";
     key = req.query.email;
   } else {
-    type = "facebook";
-    key = req.query.facebook;
+    type = "fb_login_id";
+    key = req.query.fb_login_id;
   }
   userExists = await service.read(type, key);
-
+  console.log(type, key)
   if (userExists) {
     res.status(200).json({ data: userExists });
   } else {
