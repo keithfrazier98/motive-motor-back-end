@@ -11,22 +11,27 @@ async function read(req, res, next) {
     key = req.query.fb_login_id;
   }
   userExists = await service.read(type, key);
-  console.log(type, key)
+  console.log(type, key);
   if (userExists) {
     res.status(200).json({ data: userExists });
   } else {
     switch (type) {
       case "email":
-        next({ status: 400, message: "This email account is not signed up with Motive Motor." });
+        next({
+          status: 400,
+          message: "This email account is not signed up with Motive Motor.",
+        });
         break;
       case "fb_login_id":
-        next({status:400, message: "This facebook account is not signed up with Motive Motor."});
+        next({
+          status: 400,
+          message: "This facebook account is not signed up with Motive Motor.",
+        });
     }
   }
 }
 
 async function create(req, res, next) {
-  console.log(req.body);
   const { first_name, last_name, email, password, theme_id } = req.body.data;
   const newLogin = await service.createUserLogin(email, password);
   const user_id = newLogin[0].user_id;
@@ -39,11 +44,12 @@ async function create(req, res, next) {
     first_name,
     last_name
   );
+
   res.status(201).json({
     data: {
-      login: newLogin,
-      preferences: newUserPreferences,
-      profile: newUserProfile,
+      login: newLogin[0],
+      preferences: newUserPreferences[0],
+      profile: newUserProfile[0],
     },
   });
 }
