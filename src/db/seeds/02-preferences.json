@@ -1,4 +1,6 @@
-[{
-    "user_id":1,
-   "theme_id":"sunset" 
-}]
+[
+  {
+    "user_id": 1,
+    "theme_id": "forest"
+  }
+]
